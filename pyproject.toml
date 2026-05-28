@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-tool-box"
+dynamic = ["version"]
+description = "Utilities for agent workflows."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+dependencies = []
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+packages = ["agent_tool_box"]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+agent_tool_box = "agent-tool-box"
+
+[tool.setuptools.dynamic]
+version = { attr = "agent_tool_box.__version__" }
