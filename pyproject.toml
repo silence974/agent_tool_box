@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = { file = "LICENSE" }
 dependencies = []
+optional-dependencies = { dev = ["build>=1.2.2", "twine>=5.1.1", "pytest>=8.2", "ruff>=0.6.9"] }
 classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
@@ -27,3 +28,21 @@ agent_tool_box = "agent-tool-box"
 
 [tool.setuptools.dynamic]
 version = { attr = "agent_tool_box.__version__" }
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["agent-tool-box", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
